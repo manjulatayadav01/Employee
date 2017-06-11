@@ -1,0 +1,48 @@
+<div class="wrapper">
+  
+  <div class="table">
+   <div> 
+  <input type = "textbox" id="filter" placeholder="Type name or gender" [value]="sliderValue" 
+          (input)="sliderValue = $event.target.value" />
+   </div>
+  <div class="table">
+    <div class="row header blue">
+      <div class="cell">
+        Name
+      </div>
+      <div class="cell">
+        Date Of Birth
+      </div>
+      <div class="cell">
+        Gender
+      </div>
+      <div class="cell">
+        Salary
+      </div>
+      <div class="cell">
+        Salary Currency
+      </div>
+    </div>
+    <ng-container *ngFor="let emp of employeeList | multiSearchFilter:sliderValue">
+    <div class="row">
+      <div class="cell">
+        {{emp.employeeName}}
+      </div>
+      <div class="cell">
+        {{emp.employeeDOB | date: 'dd/MM/yyyy'}}
+      </div>
+      <div class="cell">
+        {{emp.employeeGender}}
+      </div>
+      <div class="cell">
+        {{emp.employeeSalary | number }}
+      </div>
+       <div class="cell">
+        {{emp.employeeSalary | currency : 'INR' : true}}
+      </div>
+    
+    </div>
+    </ng-container>
+  </div>
+  
+</div>

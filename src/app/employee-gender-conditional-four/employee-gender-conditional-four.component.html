@@ -1,0 +1,40 @@
+<div class="wrapper">
+  
+  <div class="table">
+   
+  <div class="table">
+    <div class="row header blue">
+      <div class="cell">
+        Name
+      </div>
+      <div class="cell">
+        Date Of Birth
+      </div>
+      <div class="cell">
+        Gender
+      </div>
+      <div class="cell">
+        Salary
+      </div>
+    </div>
+    <ng-container *ngFor="let emp of employeeList">
+    <div class="row">
+      <div class="cell">
+        {{emp.employeeName | uppercase}}
+      </div>
+      <div class="cell">
+        {{emp.employeeDOB | date:'yyyy-MM-dd HH:mm:ss Z'}}
+      </div>
+      <div class="cell">
+        {{(emp.employeeGender === "Male") ? 1 : 2}}
+      </div>
+      <div class="cell">
+        {{emp.employeeSalary | number }}
+      </div>
+       
+    
+    </div>
+    </ng-container>
+  </div>
+  
+</div>

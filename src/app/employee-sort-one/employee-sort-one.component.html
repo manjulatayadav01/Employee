@@ -1,0 +1,55 @@
+<div class="wrapper">
+  
+  <div class="table">
+  
+  <div class="table">
+    <div class="row header blue">
+      <div class="cell">
+        <a href ="#" (click)="sortType('name')" [class.active] = "sortBy === 'name'">
+        Name
+        </a>
+      </div>
+      <div class="cell">
+        <a href ="#" (click)="sortType('DOB')" [class.active] = "sortBy === 'DOB'">
+        Date Of Birth
+        </a>
+      </div>
+      <div class="cell">
+        <a href ="#" (click)="sortType('gender')" [class.active] = "sortBy === 'gender'">
+        Gender
+        </a>
+      </div>
+      <div class="cell">
+        <a href ="#" (click)="sortType('salary')" [class.active] = "sortBy === 'salary'">
+         Salary
+        </a>
+      </div>
+      <div class="cell">
+        <a href ="#" (click)="sortType('salary')" [class.active] = "sortBy === 'salary'">       
+        Salary Currency
+        </a>
+      </div>
+    </div>
+    <ng-container *ngFor="let emp of employeeList">
+    <div class="row">
+      <div class="cell">
+        {{emp.employeeName}}
+      </div>
+      <div class="cell">
+        {{emp.employeeDOB | date: 'dd/MM/yyyy'}}
+      </div>
+      <div class="cell">
+        {{emp.employeeGender}}
+      </div>
+      <div class="cell">
+        {{emp.employeeSalary | number }}
+      </div>
+       <div class="cell">
+        {{emp.employeeSalary | currency : 'INR' : true}}
+      </div>
+    
+    </div>
+    </ng-container>
+  </div>
+  
+</div>

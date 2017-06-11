@@ -1,0 +1,53 @@
+<div class="wrapper">
+  
+  <div class="table">
+   <div> 
+  <input type = "textbox" id="filter" placeholder="search name" [value]="nameFilterValue" 
+          (input)="nameFilterValue = $event.target.value" />:
+          <input type = "textbox" id="filter" placeholder="search gender" [value]="genderFilterValue" 
+          (input)="genderFilterValue = $event.target.value" />:
+          <label class="checkbox-inline">
+          <input type="checkbox" [value]="exactMatch" (change)="exactMatch = $event.target.checked" /> Exact Match
+        </label>
+   </div>
+  <div class="table">
+    <div class="row header blue">
+      <div class="cell">
+        Name
+      </div>
+      <div class="cell">
+        Date Of Birth
+      </div>
+      <div class="cell">
+        Gender
+      </div>
+      <div class="cell">
+        Salary
+      </div>
+      <div class="cell">
+        Salary Currency
+      </div>
+    </div>
+    <ng-container *ngFor="let emp of employeeList | nameSearch:{name :nameFilterValue, gender : genderFilterValue, match : exactMatch }">
+    <div class="row">
+      <div class="cell">
+        {{emp.employeeName}}
+      </div>
+      <div class="cell">
+        {{emp.employeeDOB | date: 'dd/MM/yyyy'}}
+      </div>
+      <div class="cell">
+        {{emp.employeeGender}}
+      </div>
+      <div class="cell">
+        {{emp.employeeSalary | number }}
+      </div>
+       <div class="cell">
+        {{emp.employeeSalary | currency : 'INR' : true}}
+      </div>
+    
+    </div>
+    </ng-container>
+  </div>
+  
+</div>
